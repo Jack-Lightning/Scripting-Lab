@@ -1,0 +1,26 @@
+<!---One Way data bind-->
+<div>
+    <input type="text" id="TODO" [(ngModel)]="newItem" placeholder="Type Here">
+    <button (click) = "addItem()">Add TODO</button>
+    
+    <p>
+    List:
+    </p>
+    <ul>
+    <li *ngFor="let item of allItems">
+        <input type="checkbox" (change)="ifChecked($event,item)">{{item}}
+        <ul *ngIf="isDisplayed">
+            <li *ngFor="let venue of venues">
+                <input type="checkbox" (change)="ifChecked1($event,item)">{{venue}}
+            </li>
+        </ul>
+    </li>
+    </ul>
+    <!-- <p *ngIf="isDisplayed" >You have selected 
+        <li *ngFor="let Vitems of truItem">
+           <ul>
+            {{Vitems}}
+           </ul> 
+        </li>
+    </p> -->
+</div>
